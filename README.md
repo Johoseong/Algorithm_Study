@@ -10,6 +10,9 @@
 ## :grey_exclamation: 작성 규칙
 > BOJ/[문제번호][사용언어] 문제 이름/계정/src
 
+## :dancer: Contributors
+> [Johoseong](https://github.com/Johoseong)
+
 ## :alarm_clock: 일정표
 ||1|2|3|
 |:---:|:---:|:---:|:---:|
