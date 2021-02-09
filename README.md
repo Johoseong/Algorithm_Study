@@ -4,11 +4,12 @@
 > [Baekjoon Online Judge](https://www.acmicpc.net/)
 
 ## :loudspeaker: 진행 방식
-> 매주 3문제씩 풀고 업로드하고 리뷰합니다. (2021.02.06 ~ )  
+> 매주 3문제씩 풀고 업로드하고 리뷰합니다. (2021.02.10 ~ )  
 > 매주 할당량 미도달 시 벌금 1만원.
 
 ## :grey_exclamation: 작성 규칙
-> BOJ/[문제번호][사용언어] 문제 이름/계정/src
+> BOJ/[문제번호][사용언어] 문제 이름/계정  
+(예시) BOJ/[2293][파이썬] 동전 1/Jo hoseong
 
 ## :dancer: Contributors
 > [Johoseong](https://github.com/Johoseong)
@@ -16,4 +17,4 @@
 ## :alarm_clock: 일정표
 ||1|2|3|
 |:---:|:---:|:---:|:---:|
-|```1주차```||||
+|```1주차```  2021.02.10||||
