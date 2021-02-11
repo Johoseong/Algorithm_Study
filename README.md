@@ -8,8 +8,8 @@
 > 매주 할당량 미도달 시 벌금 1만원.
 
 ## :grey_exclamation: 작성 규칙
-> BOJ/[문제번호][사용언어] 문제 이름/계정  
-(예시) BOJ/[2293][파이썬] 동전 1/Jo hoseong
+> BOJ/[문제번호] 문제 이름/계정  
+(예시) BOJ/[2293] 동전 1/Johoseong
 
 ## :dancer: Contributors
 > [Johoseong](https://github.com/Johoseong)
