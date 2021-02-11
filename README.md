@@ -12,11 +12,11 @@
 (예시) BOJ/[2293] 동전 1/Johoseong/2293.py
 
 ## :dancer: Contributors
-> [Johoseong](https://github.com/Johoseong)
-> [Meeju]()
+> [Johoseong](https://github.com/Johoseong)  
+> [Meeju](https://github.com/meeeeju)
 
 ## :alarm_clock: 일정표
 ||1|2|3|
 |:---:|:---:|:---:|:---:|
-|```1주차```<br>2021.02.10||벌집(https://www.acmicpc.net/problem/2292)|가장 긴 증가하는 부분 수열(https://www.acmicpc.net/problem/11053)|
-|```2주차```<br>2021.02.15||||
+|```1주차```<br>(21.02.10 ~ 21.02.14||[벌집](https://www.acmicpc.net/problem/2292)|[가장 긴 증가하는 부분 수열](https://www.acmicpc.net/problem/11053)|
+|```2주차```<br>(21.02.15 ~ 21.02.21)||||
