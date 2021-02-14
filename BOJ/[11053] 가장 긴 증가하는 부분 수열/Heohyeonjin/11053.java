@@ -13,10 +13,11 @@ public class project11053 {
 		for(int i = 0; i < A; i++) {
 			dp[i] = 1; max = 1;
 			for(int j = 0 ;j < i; j++) {
-				/*if(dp[i]<dp[j]+1)
+				
+				if(seq[i] > seq[j]){
+					/*if(dp[i]<dp[j]+1)
 				 * dp[i] = dp[j]+1; //요건 뭔가 생각 못해낼 거 같아서..
 				 */
-				if(seq[i] > seq[j]){	
 					if(max < dp[j])
 						max = dp[j];
 					dp[i] = max+1;					
