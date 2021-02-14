@@ -13,7 +13,7 @@
 
 ## :dancer: Contributors
 > [Johoseong](https://github.com/Johoseong)  
-> [Meeju](https://github.com/meeeeju)
+> [Meeju](https://github.com/meeeeju)  
 > [eomdayeon](https://github.com/eomdayeon)
 ## :alarm_clock: 일정표
 ||1|2|3|
