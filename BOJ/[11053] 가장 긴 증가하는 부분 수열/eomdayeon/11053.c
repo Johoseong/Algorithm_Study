@@ -21,9 +21,6 @@ int main() {
 	for (i = 1; i <= N; i++) {
 		for (j = 1; j < i; j++) {
 			if (arr[i] > arr[j]) {
-				if (DP[j] > max) {
-					max = DP[j];
-				}
 				DP[i] = MAX(DP[i], DP[j] + 1);
 			}
 
