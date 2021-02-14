@@ -21,4 +21,4 @@
 ||1|2|3|
 |:---:|:---:|:---:|:---:|
 |```1주차```<br>(21.02.10 ~ 21.02.14||[벌집](https://www.acmicpc.net/problem/2292)|[가장 긴 증가하는 부분 수열](https://www.acmicpc.net/problem/11053)|
-|```2주차```<br>(21.02.15 ~ 21.02.21)||||
+|```2주차```<br>(21.02.15 ~ 21.02.21)|[Z](https://www.acmicpc.net/problem/1074)|[쿼드트리](https://www.acmicpc.net/problem/1992)|[박스 채우기](https://www.acmicpc.net/problem/1493)|
