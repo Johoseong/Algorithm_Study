@@ -9,12 +9,13 @@
 
 ## :grey_exclamation: 작성 규칙
 > BOJ/[문제번호] 문제 이름/계정/src
-(예시) BOJ/[2293] 동전 1/Johoseong/2293.py
+<br>(예시) BOJ/[2293] 동전 1/Johoseong/2293.py
 
 ## :dancer: Contributors
 > [Johoseong](https://github.com/Johoseong)  
 > [Meeju](https://github.com/meeeeju)  
 > [eomdayeon](https://github.com/eomdayeon)  
+> [heohyeonjin](https://github.com/heohyeonjin)  
 > [leesugyung](https://github.com/leesugyung)
 ## :alarm_clock: 일정표
 ||1|2|3|
