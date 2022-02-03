@@ -2,6 +2,53 @@
 
 [문제 링크](https://www.acmicpc.net/problem/6087) 
 
+---
+
+### &#10071;풀이과정과 주의점
+
+bfs 이용했다.
+
+정말 어려웠다...<br/>
+처음에 문제를 봤을 때는 단순하게 1. bfs로 C에서 C까지 탐색하면서 2. 방향이 꺾이면 visited 증가 & 최소인 구간으로 가도록 코드를 짰다.
+그런데 이렇게 하니까 python3 pypy3 다 시간초과가 떴다..<br/><br/>
+시간초과 해결하려고 <br/>
+```python
+if visited[next_r][next_c] > now_mirror: 
+	...
+```
+다음 방향에 기록된 거울 개수 > 현재 거울 개수라서 탐색할 가치가 있는 경우만 다음 지점을 큐에 넣도록 했으나 8%에서 시간초과가 났다.<br/>
+이 방법도 근본적으론 여러 루트를 탐색하는 것이라서 시간이 오래 걸리는 듯.<br/><br/>
+찾아보니까 정말 빠르고 효율적인 방법이 있었다.<br/>
+```python
+while queue:
+now_r, now_c = queue.popleft()
+
+if now_r == laser[1][0] and now_c == laser[1][1]:
+    return visited[now_r][now_c]
+
+for d in [[-1, 0], [1, 0], [0, -1], [0, 1]]:
+    nr = now_r + d[0]
+    nc = now_c + d[1]
+    # next_dir += 1
+    while True:
+	if not (0 <= nr < H and 0 <= nc < W):   # 격자 벗어나거나
+	    break
+	if field[nr][nc] == "*":                    # 벽 만나면 break
+	    break
+	if visited[nr][nc] < visited[now_r][now_c] + 1:     # 이동할 위치에 있는 거울이 현재까지 사용한 거울+1보다 작으면 갱신 X
+	    break
+	queue.append((nr, nc))                      # 새 위치 이동
+	visited[nr][nc] = visited[now_r][now_c] + 1
+	nr += d[0]
+	nc += d[1]
+```
+이렇게 방향을 기록하지 않고 while을 이용해서 그냥 한 방향으로 계속 탐색하도록 하는 방법이다.<br/>
+진짜 생각도 못한 방법이다!!!! 꼭 다시 풀어보기!! 너무 좋은 방법이다;;<br/><br/>
+python3로 제출했다.
+
+
+---
+
 ### 성능 요약
 
 메모리: 32436 KB, 시간: 104 ms
