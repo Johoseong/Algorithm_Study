@@ -1,6 +1,33 @@
 # [Gold IV] 집합의 표현 - 1717 
 
-[문제 링크](https://www.acmicpc.net/problem/1717) 
+[문제 링크](https://www.acmicpc.net/problem/1717)
+
+---
+
+### &#10071;풀이과정과 주의점
+
+union-find(disjoint-set)로 풀었다.<br/><br/>
+union-find 자료구조의 완전 기본 문제였다.<br/>
+union 연산과 find 연산은 각각 이렇게 구현했다.<br/>
+
+```python
+def union(a, b):
+    root_a = find(a)
+    root_b = find(b)
+    if root_a == root_b:
+        return
+    field[root_b] = root_a
+
+def find(a):
+    if field[a] == a:
+        return a
+    field[a] = find(field[a])
+    return field[a]
+```
+<br/>
+python3로 제출했다.<br/>
+
+---
 
 ### 성능 요약
 
