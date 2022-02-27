@@ -1,18 +1,17 @@
 import sys
 input = sys.stdin.readline
- 
-S = list(input().rstrip())
-bomb = list(input().rstrip())
- 
+
+arr = list(input().rstrip())
+word = list(input().rstrip())
 stack = []
- 
-for i in range(len(S)):
-    stack.append(S[i])
-    if stack[-1] == bomb[-1] and len(stack) >= len(bomb):
-        if stack[-len(bomb):] == bomb:
-            for i in range(len(bomb)):
+
+for i in range(len(arr)):
+    stack.append(arr[i])
+    if stack[-1] == word[-1] and len(stack) >= len(word):
+        if stack[-len(word):] == word:
+            for i in range(len(word)):
                 stack.pop()
- 
+
 if stack:
     print("".join(stack))
 else:
