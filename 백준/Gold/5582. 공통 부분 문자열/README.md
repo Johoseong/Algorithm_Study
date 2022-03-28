@@ -2,6 +2,29 @@
 
 [문제 링크](https://www.acmicpc.net/problem/5582) 
 
+---
+
+### &#10071;풀이과정과 주의점
+
+문자열 문제였고, dp로 풀었다.<br/><br/>
+dp로 풀어야된다는 생각만 해내면 구현은 엄청 간단한 문제였다.<br/>
+그런데 인덱스 범위 이상하게 구현해서 조금 헤맸다 ㅎㅎ;;<br/>
+
+```python
+dp = [[0] * len(str2) for _ in range(len(str1))]
+...
+for i in range(len(str1)):
+    for j in range(len(str2)):
+        if str1[i] == str2[j]:
+            dp[i][j] = dp[i - 1][j - 1] + 1
+            result = max(dp[i][j], result)
+```
+<br/>
+처음에 이렇게 구현했다가 if문 내에 dp[i-1][j-1]가 i=0, j=0를 제대로 처리하지 못한다는걸 뒤늦게 알아차렸다. 이렇게 하니까 AAA와 A 같은 경우에 답이 3이 나왔다 ㅋㅋㅋ 후다닥 수정했다.. 그래도 무난한 문제였다 ㅜㅜㅎㅎ<br/><br/> 
+pypy3로 제출했다. python3는 시간초과.<br/>
+
+---
+
 ### 성능 요약
 
 메모리: 250668 KB, 시간: 528 ms
