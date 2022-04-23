@@ -1,3 +1,4 @@
-# BOJ_algorithm_study
-This is a auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).<br><br>
-알고리즘 문제 풀이 후 리뷰 백업 레포지토리
+# Algorithm_Study
+
+알고리즘 풀고 코드&리뷰 백업<br/><br/>
+백준허브 사용[BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub)
