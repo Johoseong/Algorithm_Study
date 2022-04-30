@@ -1,0 +1,40 @@
+import sys
+from collections import defaultdict
+sys.setrecursionlimit(10 ** 6)
+
+def dfs(x):
+    if orders[x] and visited[orders[x]] == 0:
+        after[orders[x]] = x
+        return
+
+    visited[x] = 1
+
+    for next_x in tree[x]:
+        if visited[next_x] == 0:
+            dfs(next_x)
+    
+    if after[x] != -1:
+        dfs(after[x])
+
+def solution(n, path, order):
+    global tree
+    global orders
+    global after
+    global visited
+    tree = [[] for _ in range(n)]
+    visited = [0] * n
+    orders = [0] * n
+    after = defaultdict(lambda : -1)
+
+    for p in path:
+        a, b = p
+        tree[a].append(b)
+        tree[b].append(a)
+
+    for o in order:
+        a, b = o
+        orders[b] = a
+ 
+    dfs(0)
+
+    return True if min(visited) != 0 else False
