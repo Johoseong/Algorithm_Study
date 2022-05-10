@@ -1,0 +1,36 @@
+def find_set(index, n, bitmask, ban_list):
+    if index == n:
+        visit[bitmask] = True
+        return
+
+    for i in ban_list[index]:
+        if bitmask & (1 << i):
+            continue
+        find_set(index + 1, n, bitmask | (1 << i), ban_list)
+
+def solution(user_id, banned_id):
+    global visit
+    answer = 0
+    visit = [False] * (1 << 8)
+    ban_list = [[] for _ in range(len(banned_id))]
+
+    for i, ban in enumerate(banned_id):
+        for j, user in enumerate(user_id):
+            if len(user) != len(ban):
+                continue
+            flag = 1
+            for k in range(len(ban)):
+                if ban[k] != '*' and user[k] != ban[k]:
+                    flag = 0
+                    break
+
+            if flag == 1:
+                ban_list[i].append(j)
+
+    find_set(0, len(banned_id), 0, ban_list)
+
+    for i in visit:
+        if i == True:
+            answer += 1
+
+    return answer
