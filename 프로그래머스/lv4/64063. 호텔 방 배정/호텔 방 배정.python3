@@ -1,0 +1,21 @@
+import sys
+sys.setrecursionlimit(10 ** 6)
+
+def find_room(num):
+    if num not in rooms:
+        rooms[num] = num + 1
+        return num
+    
+    empty_num = find_room(rooms[num]) # 해당 숫자에 대해 실제로 배정된 방
+    rooms[num] = empty_num + 1
+    return empty_num
+    
+def solution(k, room_number):
+    global rooms, answer
+    answer = []
+    rooms = dict() # 그 다음 배정 안된 방 가르키는 dict
+
+    for room in room_number:
+        answer.append(find_room(room))
+
+    return answer
