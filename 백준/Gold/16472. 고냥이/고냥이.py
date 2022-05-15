@@ -14,20 +14,20 @@ while start <= end:
 
     if (string[end] not in alphabet):
         if len(alphabet) < N:
-            alphabet[string[end]] = [end, end] #처음발견, 끝발견 인덱스
+            alphabet[string[end]] = end #처음발견, 끝발견 인덱스
         else:
             tmp = 100000
             for al in alphabet:
-                s, e = alphabet[al]
+                e = alphabet[al]
                 tmp = min(tmp, e)
                 if tmp == e:
                     tmp_al = al
             alphabet.pop(tmp_al)
             start = tmp + 1
-            alphabet[string[end]] = [end, end]
+            alphabet[string[end]] = end
 
     else:
-        alphabet[string[end]][1] = end
+        alphabet[string[end]] = end
 
     answer = max(answer, end - start + 1)
     end += 1
