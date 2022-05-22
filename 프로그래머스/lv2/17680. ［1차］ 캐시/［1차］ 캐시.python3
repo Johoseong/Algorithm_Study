@@ -1,0 +1,28 @@
+def solution(cacheSize, cities):
+    answer = 0
+    cache = []
+
+    if cacheSize == 0:
+        return 5 * len(cities)
+
+    for c1 in cities:
+        city = c1.upper()
+        exist = False
+
+        for i, c2 in enumerate(cache):
+            if c2 == city:
+                index = i
+                exist = True
+
+        if exist == True:
+            cache = cache[:index] + cache[index + 1:] + [city]
+            answer += 1
+        elif len(cache) < cacheSize:
+            cache.append(city)
+            answer += 5
+        else:
+            cache.pop(0)
+            cache.append(city)
+            answer += 5
+
+    return answer
