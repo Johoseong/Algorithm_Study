@@ -26,3 +26,5 @@ for case in combination:
     result.add(''.join(tmp).rstrip())
 for i in sorted(result):
     print(i)
+
+/* modify */
