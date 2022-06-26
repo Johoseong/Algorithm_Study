@@ -1,21 +1,11 @@
-from itertools import permutations
 def solution(n):
-    answer = 0
-    jumps = [1 for _ in range(n)]
-    L = n
-    two = 0
+    if n == 1:
+        return 1
+    jumps = [0 for _ in range(n + 1)]
+    jumps[1] = 1
+    jumps[2] = 2
 
-    while True:
-        permut = list(set(permutations(jumps)))
-        answer += len(permut)
+    for i in range(3, n + 1):
+        jumps[i] = jumps[i - 1] + jumps[i - 2]
 
-        if L <= 1:
-            break
-
-        a = jumps.pop(0)
-        b = jumps.pop(0)
-        if a >= 2 or b >= 2:
-            break
-        jumps.append(2)
-        L -= 1
-    return answer % 1234567
+    return jumps[n] % 1234567
