@@ -1,0 +1,42 @@
+def insert(trie, w, l):
+    cur_node = trie # 처음 루트로 잡아준다
+    for a in w: # 받은 문자열 하나하나에 대해서
+        cur_node.setdefault(a, [{}, {}]) # 0은 공통되는 문자 count용
+        if l not in cur_node[a][0]:
+            cur_node[a][0][l] = 0
+        cur_node[a][0][l] += 1
+        cur_node = cur_node[a][1]
+
+def search(trie, q, l):
+    cur_node = trie
+    cnt = 0
+    for a in q:
+        if a == '?':
+            for i in cur_node:
+                if l in cur_node[i][0]:
+                    cnt += cur_node[i][0][l]
+            return cnt
+
+        if a in cur_node:
+            cur_node = cur_node[a][1]
+        else:
+            break
+    return cnt
+
+def solution(words, queries):
+    answer = []
+    trie = {} # root
+    reverse_trie = {}
+
+    for w in words:
+        insert(trie, w, len(w))
+        insert(reverse_trie, reversed(w), len(w))
+    for q in queries:
+        if q[0] == '?' and q[-1] == '?': # 다 물음표
+            result = search(trie, q, len(q))
+        elif q[0] == '?': # 앞에가 물음표
+            result = search(reverse_trie, reversed(q), len(q))
+        else: # 뒤에가 물음표
+            result = search(trie, q, len(q))
+        answer.append(result)
+    return answer
