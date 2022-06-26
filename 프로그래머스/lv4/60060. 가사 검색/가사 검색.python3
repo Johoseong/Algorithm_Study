@@ -1,7 +1,7 @@
 def insert(trie, w, l):
-    cur_node = trie # 처음 루트로 잡아준다
-    for a in w: # 받은 문자열 하나하나에 대해서
-        cur_node.setdefault(a, [{}, {}]) # 0은 공통되는 문자 count용
+    cur_node = trie
+    for a in w: # 단어 내 알파벳 하나하나
+        cur_node.setdefault(a, [{}, {}]) # 중요!!!!!! value는 단어 길이 저장해두기
         if l not in cur_node[a][0]:
             cur_node[a][0][l] = 0
         cur_node[a][0][l] += 1
@@ -29,14 +29,14 @@ def solution(words, queries):
     reverse_trie = {}
 
     for w in words:
-        insert(trie, w, len(w))
-        insert(reverse_trie, reversed(w), len(w))
+        insert(trie, w, len(w)) # 일반적인 경우
+        insert(reverse_trie, reversed(w), len(w)) # 단어 뒤집은 경우
+
     for q in queries:
         if q[0] == '?' and q[-1] == '?': # 다 물음표
-            result = search(trie, q, len(q))
-        elif q[0] == '?': # 앞에가 물음표
-            result = search(reverse_trie, reversed(q), len(q))
+            answer.append(search(trie, q, len(q)))
+        elif q[0] == '?': # 앞에가 물음표 -> 뒤집어서 단어검색!!!!!!
+            answer.append(search(reverse_trie, reversed(q), len(q)))
         else: # 뒤에가 물음표
-            result = search(trie, q, len(q))
-        answer.append(result)
+            answer.append(search(trie, q, len(q)))
     return answer
