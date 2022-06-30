@@ -1,0 +1,29 @@
+from itertools import combinations
+def solution(orders, course):
+    answer = []
+    combis = dict()
+    for i in range(len(course)):
+        combis[course[i]] = dict()
+
+    for i in range(len(course)):
+        for o in orders:
+            coms = list(combinations(o, course[i]))
+            for c in coms:
+                tmp = ''.join(sorted(c))
+                combis[course[i]].setdefault(tmp, 0)
+                combis[course[i]][tmp] += 1
+    
+    for i in combis:
+        MAX = 2 # 2명 이상 손님이 주문한 경우만 됨
+        tmp = []
+        for j in combis[i]:
+            if combis[i][j] > MAX:
+                MAX = combis[i][j]
+                tmp = [j]
+            elif combis[i][j] == MAX:
+                tmp.append(j)
+        for t in tmp:
+            answer.append(t)
+            
+    answer.sort()
+    return answer
