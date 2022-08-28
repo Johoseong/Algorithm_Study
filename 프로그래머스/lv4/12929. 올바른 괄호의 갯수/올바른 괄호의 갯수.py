@@ -1,20 +1,18 @@
-def dfs(cur, left_cnt, right_cnt, n):
+def dfs(l, r, n):
     global answer
-
-    if left_cnt == n and right_cnt == n:
-        answer.add(cur)
+    if l == n and r == n:
+        answer += 1
         return
 
-    if left_cnt < n:
-        dfs(cur + "(", left_cnt + 1, right_cnt, n)
-        if left_cnt > right_cnt:
-            dfs(cur + ")", left_cnt, right_cnt + 1, n)
+    if l < n:
+        dfs(l + 1, r, n)
+        if l > r:
+            dfs(l, r + 1, n)
     else:
-        dfs(cur + ")", left_cnt, right_cnt + 1, n)
+        dfs(l, r + 1, n)
 
 def solution(n):
     global answer
-    answer = set()
-
-    dfs("(", 1, 0, n)
-    return len(answer)
+    answer = 0
+    dfs(1, 0, n)
+    return answer
