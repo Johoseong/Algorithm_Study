@@ -1,7 +1,8 @@
 import java.util.HashMap;
+
 class Solution {
     public static String solution(String X, String Y) {
-        String answer = "";
+        StringBuilder answer = new StringBuilder();
         HashMap<Integer, Integer> mapX = new HashMap<>();
         HashMap<Integer, Integer> mapY = new HashMap<>();
         String[] arrX = X.split("");
@@ -18,21 +19,14 @@ class Solution {
         for (int i = 9; i >= 0; i--) {
             if (!mapX.containsKey(i) || !mapY.containsKey(i))
                 continue;
-            if (i == 0 && answer.isEmpty()) {
-                answer = "0";
-                break;
-            }
-            int min;
-            if (mapX.get(i) < mapY.get(i))
-                min = mapX.get(i);
-            else
-                min = mapY.get(i);
-            answer += Integer.toString(i).repeat(min);
-//            for (int j = 0; j < min; j++)
-//                answer = answer + i;
+            if (i == 0 && "".equals(answer.toString()))
+                return "0";
+
+            answer.append(Integer.toString(i).repeat(Math.min(mapX.get(i), mapY.get(i))));
         }
-        if (answer.isEmpty())
-            answer = "-1";
-        return answer;
+        if ("".equals(answer.toString()))
+            return "-1";
+        return answer.toString();
     }
+
 }
